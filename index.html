@@ -1,126 +1,205 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-		<title>GeoHappenings :: ESRI Dev Meetup Presentation</title>
+    <title>GeoHappenings :: ESRI Dev Meetup Presentation</title>
 
-		<meta name="description" content="">
-		<meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
-		<link rel="stylesheet" href="my-styles.css">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="my-styles.css">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+        <!-- Any section element inside of this container is displayed as a slide -->
 
-			<div class="slides">
-				<section>
-					<h2>GeoHappenings</h2>
-					<p>Chronicles of a Mapping Application</p>
-				</section>
+        <div class="slides">
+            <section>
+                <h2>GeoHappenings</h2>
+                <p>Chronicles of a Mapping Application</p>
+            </section>
 
-				<section>
-					<h2>(ArcGIS.js <= 100) Responsive Edition</h2>
-					<p>Built Entirely with HTML, CSS, and JavaScript</p>
+            <section>
+                <h2>(ArcGIS.js <= 100) Responsive Edition</h2>
+                <p>Built Entirely with HTML, CSS, and JavaScript</p>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+                <aside class="notes">
+                    Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                </aside>
+            </section>
 
 
-				<section>
-					<h2>Some Codez</h2>
-					<pre><code data-trim contenteditable>
+            <section class="present" style="top: -350px; display: block;">
+                <h2 style="font-weight: bold; position: absolute; z-index: 1; top: 225%;">GIS Tech.</h2>
+                <div class="fragment visible" data-fragment-index="0">
+                    <img src="http://manual.linfiniti.com/en/_images/0142.png" style="position: absolute; max-height: none; border: none;">
+                    <p style="font-weight: bold; position: absolute; text-align: left; top: 500%; width: 440px;">I've Made IT!
+                    </p>
+                </div>
+                <div class="fragment visible" data-fragment-index="1">
+                    <p style="font-weight: bold; position: absolute; top: 1000%;">Kinda....</p>
+                </div>
+                <p style="color:#000;font-size:9px;position:absolute;right:0;top:1700%">http://commons.wikimedia.org/wiki/File:Phanaeng_kai.jpg</p>
+            </section>
+
+            <section class="present" style="top: -350px; display: block;">
+                <h2 style="font-weight: bold; position: absolute; z-index: 1; top: 225%;">GIS Tech Continued</h2>
+                <div class="fragment visible" data-fragment-index="0">
+                    <p style="font-weight: bold; position: absolute; text-align: left; top: 500%; width: 440px;">
+                        I can haz python!
+                    </p>
+                </div>
+                <div class="fragment visible" data-fragment-index="1">
+                    <p style="font-weight: bold; position: absolute; top: 1000%;">Kinda....</p>
+                </div>
+                <p style="color:#000;font-size:9px;position:absolute;right:0;top:1700%">http://commons.wikimedia.org/wiki/File:Phanaeng_kai.jpg</p>
+            </section>
+
+            <section class="present" style="top: -350px; display: block;">
+                <h2 style="font-weight: bold; position: absolute; z-index: 1; top: 225%;">Hired in Fort Collins</h2>
+                <div class="fragment visible" data-fragment-index="0">
+                    <img src="http://www.bodybuilding.com/fun/images/2007/flex_feb07cover.jpg" style="position: absolute; max-height: none; border: none;">
+                    <p style="font-weight: bold; position: absolute; text-align: left; top: 500%; width: 440px;">
+                        My boss's Flex Skills:
+                    </p>
+                </div>
+                <div class="fragment visible" data-fragment-index="1">
+                    <img src="http://www.fitnessgurusam.com/wp-content/uploads/2009/05/skinny-guy.jpg" style="position: absolute; max-height: none; border: none;">
+                    <p style="font-weight: bold; position: absolute; text-align: left; top: 1000%; width: 440px;">
+                        My Flex Skills:
+                    </p>
+                </div>
+                <p style="color:#000;font-size:9px;position:absolute;right:0;top:1700%">http://commons.wikimedia.org/wiki/File:Phanaeng_kai.jpg</p>
+            </section>
+
+            <section class="present" style="top: -350px; display: block;">
+                <h2 style="font-weight: bold; position: absolute; z-index: 1; top: 225%;">Nicks' Noob Suggestions</h2>
+                <div class="fragment visible" data-fragment-index="0">
+                    <p style="font-weight: bold; position: absolute; text-align: left; top: 500%; width: 440px;">
+                        Javascript Weekly
+                    </p>
+                </div>
+                <div class="fragment visible" data-fragment-index="1">
+                    <p style="font-weight: bold; position: absolute; top: 600%;">Pluralsight</p>
+                </div>
+                <p style="color:#000;font-size:9px;position:absolute;right:0;top:1700%">http://commons.wikimedia.org/wiki/File:Phanaeng_kai.jpg</p>
+            </section>
+
+
+
+            <section>
+                <img src="img/jeremy-chat.png" />
+            </section>
+
+            <section>
+                <img src="img/jeremy-so-many-commits.png" />
+            </section>
+
+            <section>
+                <h2>(ArcGIS.js <= 100) Responsive Edition</h2>
+                <p>Built Entirely with HTML, CSS, and JavaScript</p>
+
+                <aside class="notes">
+                    Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                </aside>
+            </section>
+
+
+
+
+
+            <section>
+                <h2>Some Codez</h2>
+                <pre><code data-trim contenteditable>
 						dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
 					</code></pre>
-				</section>
+            </section>
 
-					<section>
-						<h2>Under the hood :: Yeah, it's got a hemi.</h2>
-						<p class="fragment current-visible grow">Backbone</p>
-						<p class="fragment current-visible grow">Bootstrap</p>
-						<p class="fragment current-visible grow">ESRI JavaScript API</p>
-<!-- 						<p class="fragment roll-in"></p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p> -->
-					</section>
-				</section>
+            <section>
+                <h2>Under the hood :: Yeah, it's got a hemi.</h2>
+                <p class="fragment current-visible grow">Backbone</p>
+                <p class="fragment current-visible grow">Bootstrap</p>
+                <p class="fragment current-visible grow">ESRI JavaScript API</p>
+                <!-- 						<p class="fragment roll-in"></p>
+                                        <p class="fragment fade-out">fade-out</p>
+                                        <p class="fragment highlight-red">highlight-red</p>
+                                        <p class="fragment highlight-green">highlight-green</p>
+                                        <p class="fragment highlight-blue">highlight-blue</p>
+                                        <p class="fragment current-visible">current-visible</p>
+                                        <p class="fragment highlight-current-blue">highlight-current-blue</p> -->
+            </section>
+            </section>
 
-				<section>
-					<h2>Another Slide</h2>
-				</section>
+            <section>
+                <h2>Another Slide</h2>
+            </section>
 
-			</div>
+        </div>
 
-		</div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
 
-		</script>
+    </script>
 
-	</body>
+</body>
 </html>
