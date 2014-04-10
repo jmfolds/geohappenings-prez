@@ -16,7 +16,7 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
-		<link rel="stylesheet" href="my-styles.css">
+		<link rel="stylesheet" href="css/custom-styles.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -43,18 +43,121 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 
+
+
 			<div class="slides">
 				<section>
-					<h2>GeoHappenings</h2>
-					<p>Chronicles of a Mapping Application</p>
+					<h2 class="color-white"><a href="https://www.flickr.com/photos/esri/13109601695/in/set-72157642216467064/">What's GeoHappening?</a></h2>
+					<aside class="notes">
+						<ul>
+							<li>Thanks to Andy/Amy/everyone putting on the meetup and ?Jack @esri for the food/drinks.</li>
+							<li>We were told we can take as long as we want...sorry.</li>
+							<li>!!!!!!!Get an idea of how long we will take!!!!!!!</li>
+							<li>Do we have any non/entry level developers? I hope so...</li>
+							<li>briefly discuss our path to becoming developers, discuss how we created GeoHappenings</li>
+							<li>Might remember us from such events as opening up for GitHub CEO at Dev Summit</li>
+						<ul>
+					</aside>
 				</section>
 
+
+
+
+
+			<section>
+				<h2>Hello, World!</h2>
+				<p>Jeremy Folds</p>
+				<p><a href="http://www.uccs.edu/~jfolds/bike_uccs.html">Amazing Web App</a></p>
+				<aside class="notes">
+					<li>award winning devs</li>
+					<li>Grew up in KS</li>
+					<li>came to CO to study GIS</li>
+					<li>Colorado Springs GIS Technician 3 years</li>
+					<li>Copy and paste collage of horror</li>
+					<li>KS -> CO; Geography and Environmental Studies/GIS Cert
+					One programming class, only non CS major
+					A year ago I was…</li>
+				</aside>
+			</section>
+
+
+
+			<section>
+				<h2>Hello, World!</h2>
+				<p>Nick Volpe</p>
+				<aside class="notes">
+					<li>Some notes</li>
+				</aside>
+			</section>
+
+
+
+
+
+			<section>
+				<h2>Getting Started?</h2>
+					Intro to Development
+					Tools
+					training
+			</section>
+
+
+
+
+
+
+
+
+
+
+
+
 				<section>
-					<h2>(ArcGIS.js <= 100) Responsive Edition</h2>
-					<p>Built Entirely with HTML, CSS, and JavaScript</p>
+					<h2>Why are we here?</h2>
+					<h2 class="fragment roll-in">(ArcGIS.js <= 100) Responsive Edition</h2>
 
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						<li>GeoHappenings at ESRI Dev Summit :: Keynote session</li>
+					</aside>
+				</section>
+
+
+
+
+
+
+
+				<section>
+					<h2>The Tech Stack</h2>
+					<p /*class="fragment grow"*/>Backbone.js (jQuery, underscore.js)</p>
+					<p /*class="fragment grow"*/>Bootstrap</p>
+					<p /*class="fragment grow"*/>ESRI JavaScript API (dojo)</p>
+					<p /*class="fragment grow"*/>Firebase</p>
+					<p /*class="fragment grow"*/>typeahead.js</p>
+					<p class="fragment roll-in">Built Entirely with HTML, CSS, and JavaScript</p>
+					<aside class="notes">
+						It's all about the toolset.
+					</aside>
+				</section>
+
+
+				<section>
+					<h2>GitHub</h2>
+					Used a personal account repo
+					Both pushing to master branch...not good (lessons learned)
+					submitting pull request?
+				</section>
+
+
+
+
+
+				<section>
+					<h2>Demo</h2>
+					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">GeoHappenings App</a></p>
+					<p><a href="https://github.com/Esri/100-lines-or-less-js/tree/master/geohappenings">GeoHappenings on GitHub</a></p>
+					<aside class="notes">
+						Some notes
 					</aside>
 				</section>
 
@@ -64,30 +167,101 @@
 					<pre><code data-trim contenteditable>
 						dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
 					</code></pre>
+					<aside class="notes">
+						notes about code
+					</aside>
 				</section>
 
-					<section>
-						<h2>Under the hood :: Yeah, it's got a hemi.</h2>
-						<p class="fragment current-visible grow">Backbone</p>
-						<p class="fragment current-visible grow">Bootstrap</p>
-						<p class="fragment current-visible grow">ESRI JavaScript API</p>
-<!-- 						<p class="fragment roll-in"></p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p> -->
-					</section>
+
+
+				<section>
+					<h2>Backbone.js</h2>
+					<p /*class="fragment grow"*/>Structure</p>
+					<p /*class="fragment grow"*/>Model</p>
+					<p /*class="fragment grow"*/>Eventing</p>
+					<aside class="notes">
+						<li>Didn’t use at first, wasn’t sure it was necessary</li>
+						<li>Wanted to add more features</li>
+						<li>thought it could help reduce code</li>
+						<li>Added in to help structure code and use eventing/models</li>
+						<li>Could have used collection? Already had working code/only added enought to stuff in new features (error handling usability)</li>
+					</aside>
 				</section>
 
 				<section>
-					<h2>Another Slide</h2>
+					<h2>Some Codez</h2>
+					<pre><code data-trim contenteditable>
+						dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
+					</code></pre>
+					<aside class="notes">
+						notes about code
+					</aside>
 				</section>
 
-			</div>
+				<section>
+					<h2>Bootstrap</h2>
+					<p /*class="fragment grow"*/>Free and Open Source :: Twitter</p>
+					<p /*class="fragment grow"*/>Responsive design :: Mobile first approach</p>
+					<p /*class="fragment grow"*/>Handles cross-browser support :: Normalize.css</p>
+					<p /*class="fragment grow"*/>Grid Layout</p>
 
-		</div>
+					<p class="fragment roll-in">ESRI bootstrap map</p>
+					<p class="fragment roll-in">bootleaf, esri-leaflet</p>
+					<aside class="notes">
+						<li>Those guys at Twitter.</li>
+						<li>Saves a lot of time/effort.</li>
+					</aside>
+				</section>
+
+
+
+
+
+
+
+			<section>
+				<h2>Firebase</h2>
+				<p /*class="fragment grow"*/>No setup backend</p>
+				<p /*class="fragment grow"*/>JavaScript API</p>
+				<p /*class="fragment grow"*/>realtime</p>
+				<aside class="notes">
+					<li>Lessons Learned: events issue (single val added vs val change)</li>
+					<li>Timing issue with click event handler</li>
+				</aside>
+			</section>
+
+
+
+
+			<section>
+				<h2>typeahead.js</h2>
+				<p /*class="fragment grow"*/>Super Cool</p>
+				<p /*class="fragment grow"*/>Wire up your own autocomplete</p>
+				<p /*class="fragment grow"*/>realtime</p>
+				<aside class="notes">
+					<li>Twitter is awesome, if we didn’t mention that.
+Easily create your own autocomplete with REST endpoints, local arrays, or local files
+</li>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Some Codez</h2>
+				<pre><code data-trim contenteditable>
+					dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
+				</code></pre>
+				<aside class="notes">
+					notes about code
+				</aside>
+			</section>
+
+			<section>
+				<h1>?</h1>
+			</section>
+
+			</div><!--end slides-->
+
+		</div><!--end reveal-->
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
@@ -103,7 +277,7 @@
 				center: true,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
