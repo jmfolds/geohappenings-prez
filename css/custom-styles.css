@@ -1,0 +1,28 @@
+body {
+    font-family: arial !important;
+}
+
+.color-white *,
+.color-white {
+    color: #fff !important;
+}
+#notes {
+    font-size: 12px !important;
+}
+#notes ul li {
+    padding: 0;
+    margin: 0;
+}
+
+
+.nick-on-stage,
+.nick-on-stage * {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 60%;
+}
+.local-sage {
+    position: relative;
+    right: -400px;
+}
