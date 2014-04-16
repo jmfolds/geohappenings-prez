@@ -260,8 +260,6 @@
 
 				<section>
 					<h2>Demo</h2>
-					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">Other App</a></p>
-					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">Other App</a></p>
 					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">GeoHappenings App</a></p>
 					<aside class="notes">
 						Some notes
@@ -271,16 +269,21 @@
 
 <!-- Slide 20 -->
 
+				<section>
+					<h2>(ArcGIS.js <= 100) Responsive Edition</h2>
+				</section>
+
 
 				<section>
 					<h2>Our Toolset</h2>
 					<p /*class="fragment grow"*/>Backbone.js (jQuery, underscore.js)</p>
 					<p /*class="fragment grow"*/>Bootstrap</p>
-					<p /*class="fragment grow"*/>ESRI JavaScript API (dojo)</p>
+					<p /*class="fragment grow"*>ESRI JavaScript API (dojo)</p>
 					<p /*class="fragment grow"*/>Firebase</p>
 					<p /*class="fragment grow"*/>typeahead.js</p>
 					<p /*class="fragment grow"*/>GitHub</p>
-<!-- 					<p /*class="fragment grow"*/>bower -> Node.js</p> -->
+					<p /*class="fragment grow"*/>Sublime Text</p>
+					<p /*class="fragment grow"*/>Bower</p>
 					<p /*class="fragment grow"*/>Python SimpleHTTPServer</p>
 				</section>
 
@@ -291,9 +294,10 @@
 
 
 				<section>
-					<img style="background: #fff; width:40%" src="images/github.png" /> <br/>
-					<img style="background: #fff; width:20%" src="images/sublime.png" /> <br />
-					<img style="background: #fff; width:10%" src="images/python.png" />
+					<img style="background: #fff; width:40%; position:absolute; left:0" src="images/github.png" /> <br/>
+					<img style="background: #fff; position:absolute; right: 80px" src="images/sublime.png" /> <br />
+					<img style="background: #fff; width:10%; position: absolute;" src="images/python.png" />
+					<img style="background: #fff; width:10%; position: absolute; left: 300px; bottom: -250px" src="images/bower-logo.png" />
 				</section>
 
 
@@ -310,11 +314,11 @@
 					<div>
 						<img style="background: #fff; width: 20%" src="images/backbone.png" />
 					</div>
-<!-- 						<ul>
+						<ul>
 						<li>Views react to changes on models/collections</li>
 						<li>RESTful JSON interface</li>
 						</ul>
-						<p>-Mike Juniper</p> -->
+						<p>-Mike Juniper</p>
 				</section>
 
 				<section>
@@ -325,32 +329,112 @@
 
 <!-- Slide -->
 
-				<section>
-					<h2>Backbone.js :: Model</h2>
-					<pre><code data-trim contenteditable>
-//Listen for change
-model.on('change', toggleShare);
-
-
-//Set some attributes
-model.set('loc', {
-
-lat: position.coords.latitude,
-lon: position.coords.longitude
-
+<section>
+	<h2>App.js</h2>
+	<pre><code data-trim contenteditable>
+dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
+dojo.addOnLoad(function () {
+var AppView = Backbone.View.extend({
+el: 'body',
+initialize: function() {
+_.bindAll.apply(_, [this].concat(_.functions(this)));
+var $this = this;
+this.model = new (Backbone.Model.extend({}))();
+this.model.on('change', this.toggleShare, this);
+this.fb = new Firebase('https://luminous-fire-5575.firebaseio.com/users');
+this.symbol = new esri.symbol.SimpleMarkerSymbol().setColor(new dojo.Color([0, 255, 0, 0.25]));
+this.map = new esri.Map('map', {basemap: 'osm', center: [-98.737039, 38.737039], zoom: 4 });
+$('.current-location').on('click',function() { $this.getLocation($this.model) });
+$('#search-input').on('typeahead:selected', function (evt, datum, name) {
+$this.map.centerAndZoom(new esri.geometry.Point(datum.lon, datum.lat), 15);
+$('#search-modal').modal('hide');
 });
-
-
-//execute on change
-toggleShare: function (model) {
-
-//Stuff Happens here
-
+$('#dev-summit').on('click',function() { $this.map.centerAndZoom([-116.5382, 33.8260], 16)});
+this.fb.on('value', function (ss) {
+$this.messages = [];
+_.each(ss.val(), function (item) { _.each(item.messages, function (item2) {
+$this.messages.push(item2) });
+});
+$this.displayChatMessages() & $this.activateClickListener() & $this.initTypeahead();
+});
 },
+events: {
+'keyup #message-input': 'toggleShare',	'keyup #name-input': 'toggleShare',
+'click .share-message': 'saveMsg',	'click #add-event-btn': 'enableEventClickHandler'
+},
+toggleShare: function (model) {
+$('#loader').modal('hide');
+if ($('#name-input').val() && $('#message-input').val() && (this.model.get('loc'))) {
+$('.share-message').removeClass('disabled');
+} else { $('.share-message').addClass('disabled') };
+},
+saveMsg: function (evt) {
+var loc = this.model.get('loc');
+var exists; var tC = new Date().getTime();
+var name = $('#name-input').val(); var text = $('#message-input').val();
+if (!name || !text) { $('#alert-modal').modal(); return; }
+if (!loc || !loc.lat || !loc.lon) {	$('#no-location-modal').modal(); return; };
+this.fb.on('value', function (ss) {	exists = (ss.val() !== null) });
+if(!exists){ this.fb.child(name).set({text: name}) };
+this.fb.child(name).child('messages').push({ name: name, text: text,
+lat: loc.lat, lon: loc.lon, timeStamp: tC });
+$('#share-modal').modal('hide'); $('#message-input').val(''); this.model.set('loc', null);
+},getLocation: function (model) {
+if (navigator.geolocation) {
+$('#loader').modal('show');
+navigator.geolocation.getCurrentPosition(function (p) {
+model.set('loc', {lat: String(p.coords.latitude), lon: String(p.coords.longitude)});
+});
+} else { $('#alert-modal').modal(); }
+},enableEventClickHandler: function() {
+if (this.mch){ dojo.disconnect(this.mch) };
+this.mch = dojo.connect(this.map, 'onClick', dojo.hitch(this, this.onMapClick));
+$('#share-modal').modal('hide');
+},onMapClick: function (evt) {
+var x = esri.geometry.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y, true);
+this.model.set('loc', { lat: x[1], lon: x[0] });
+dojo.disconnect(this.mch) & $('#share-modal').modal('show');
+},activateClickListener: function() {
+var $this = this;
+$('.chat-item').on('click', function(evt) {
+var d = evt.currentTarget.dataset;
+$this.map.centerAndZoom(new esri.geometry.Point(d.lon, d.lat), 15);
+$('#chat-modal').modal('hide');
+});
+},displayChatMessages: function() {
+var $this = this; $('#chat-container').empty();
+this.messages.sort(function (a, b) { if (a.timeStamp > b.timeStamp) { return 1; }
+if (a.timeStamp < b.timeStamp) { return -1; } return 0;
+});
+_.each(this.messages, function (msg) {
+var tC = new Date().getTime();
+tE = Math.floor((tC - msg.timeStamp) / 1000 / 60); //get time elapsed since the previous messages in firebase
+tS = (tE > 60) ? Math.floor((tE * 60) / 3600)  + ' hours ago' :  tE + ' minutes ago';
+$('<li class="list-group-item chat-item"></li>').append('<div class="chat-date">' +
+msg.name +':  '+ tS +  '</div><div>'+ msg.text + '</div>')
+.attr('data-lat', msg.lat).attr('data-lon',msg.lon).prependTo($('#chat-container'));
+if (msg.lat && msg.lon && $this.map.graphics) {
+var pt = new esri.geometry.Point(msg.lon, msg.lat);
+var g = new esri.Graphic(pt, $this.symbol);
+$this.map.graphics.add(g);
+};
+g.setInfoTemplate(new esri.InfoTemplate().setTitle(msg.name +' '+ tS).setContent(msg.text));
+});
+},initTypeahead: function () {
+$('#search-input').typeahead('destroy');
+var bloodhound = new Bloodhound({
+datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.text); },
+queryTokenizer: Bloodhound.tokenizers.whitespace, local: this.messages });
+bloodhound.initialize();
+var options = {	displayKey: 'text',	source: bloodhound.ttAdapter(),
+templates: { suggestion: _.template('<strong><%=text%></strong>')}};
+$('#search-input').typeahead(null, options);
+}});
+new AppView();});
 
-					</code></pre>
+	</code></pre>
 
-				</section>
+</section>
 
 
 <!-- Slide 19 -->
@@ -358,10 +442,11 @@ toggleShare: function (model) {
 
 				<section>
 					<h2>Bootstrap</h2>
-					<p /*class="fragment grow"*/>Free and Open Source :: Twitter</p>
+					<img src="images/bootstrap.png" />
+<!-- 					<p /*class="fragment grow"*/>Free and Open Source :: Twitter</p>
 					<p /*class="fragment grow"*/>Responsive design :: Mobile first approach</p>
 					<p /*class="fragment grow"*/>Handles cross-browser support :: Normalize.css</p>
-					<p /*class="fragment grow"*/>Grid Layout</p>
+					<p /*class="fragment grow"*/>Grid Layout</p> -->
 				</section>
 
 				<section>
@@ -376,9 +461,9 @@ toggleShare: function (model) {
 
 			<section>
 				<h2>Firebase</h2>
-				<p /*class="fragment grow"*/>No setup backend</p>
+<!-- 				<p /*class="fragment grow"*/>No setup backend</p>
 				<p /*class="fragment grow"*/>JavaScript API</p>
-				<p /*class="fragment grow"*/>realtime</p>
+				<p /*class="fragment grow"*/>realtime</p> -->
 				<img src="../images/firebase.png" />
 				<aside class="notes">
 					<li>Lessons Learned: events issue (single val added vs val change)</li>
