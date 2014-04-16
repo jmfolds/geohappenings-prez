@@ -67,6 +67,9 @@
 						<img src="../images/dave.jpg" />
 						<img src="../images/mike.jpg" style="width:25%" />
 					</p>
+                    <p class="fragment current-visible">
+
+                    </p>
 				</section>
 
 
@@ -176,11 +179,6 @@
 				<img src="../images/lineOfSight.png" />
 			</section>
 
-			<section>
-				<h2>ESRI Script Wizard</h2>
-				<img src="../images/scriptTool.png" />
-			</section>
-
 
 			<section>
                 <!--<img src="images/excited.gif" />-->
@@ -271,70 +269,10 @@
 				</section>
 
 
-<!-- Slide 20 -->
-
-
-
-				<section>
-					<h2>Our Toolset</h2>
-					<p /*class="fragment grow"*/>Backbone.js (jQuery, underscore.js)</p>
-					<p /*class="fragment grow"*/>Bootstrap</p>
-					<p /*class="fragment grow"*>ESRI JavaScript API (dojo)</p>
-					<p /*class="fragment grow"*/>Firebase</p>
-					<p /*class="fragment grow"*/>typeahead.js</p>
-					<p /*class="fragment grow"*/>GitHub</p>
-					<p /*class="fragment grow"*/>Sublime Text</p>
-					<p /*class="fragment grow"*/>Bower</p>
-					<p /*class="fragment grow"*/>Python SimpleHTTPServer</p>
-				</section>
-
-
-			<!-- Setting up development environment  -->
-
-<!-- Slide 14 -->
-
-
-				<section>
-					<img style="background: #fff; width:40%; position:absolute; left:0" src="images/github.png" /> <br/>
-					<img style="background: #fff; position:absolute; right: 80px" src="images/sublime.png" /> <br />
-					<img style="background: #fff; width:10%; position: absolute;" src="images/python.png" />
-					<img style="background: #fff; width:10%; position: absolute; left: 300px; bottom: -250px" src="images/bower-logo.png" />
-				</section>
-
-
-
-
-
-			<!-- BACKBONE -->
-
-
-<!-- Slide 17 -->
-
-				<section>
-					<h2>Backbone.js</h2>
-					<div>
-						<img style="background: #fff; width: 20%" src="images/backbone.png" />
-					</div>
-						<ul>
-							<li>Structure</li>
-							<li>Separation of Concerns <br/>(unless you cram everything into a single 100 line file)</li>
-<!-- 						<li>Views react to changes on models/collections</li> -->
-<!-- 						<li>RESTful JSON interface</li> -->
-						</ul>
-<!-- 						<p>-Mike Juniper</p> -->
-				</section>
-
-				<section>
-					<h2>Backbone.js :: Getting Started</h2>
-						<img style="background: #fff" src="images/intro_backbone.png" />
-				</section>
-
-
-<!-- Slide -->
 
 <section>
-	<h2>App.js</h2>
-	<pre><code data-trim contenteditable>
+    <h2>GeoHappenings :: App.js</h2>
+    <pre><code data-trim contenteditable>
 dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
 dojo.addOnLoad(function () {
 var AppView = Backbone.View.extend({
@@ -435,16 +373,72 @@ $('#search-input').typeahead(null, options);
 }});
 new AppView();});
 
-	</code></pre>
+    </code></pre>
 
 </section>
 
 
-<!-- Slide 19 -->
+
+				<section>
+					<h2>Our Toolset</h2>
+					<p /*class="fragment grow"*/>Backbone.js (jQuery, underscore.js)</p>
+					<p /*class="fragment grow"*/>Bootstrap</p>
+					<p /*class="fragment grow"*>ESRI JavaScript API (dojo)</p>
+					<p /*class="fragment grow"*/>Firebase</p>
+					<p /*class="fragment grow"*/>typeahead.js</p>
+					<p /*class="fragment grow"*/>GitHub</p>
+					<p /*class="fragment grow"*/>Sublime Text</p>
+					<p /*class="fragment grow"*/>Bower</p>
+					<p /*class="fragment grow"*/>Python SimpleHTTPServer</p>
+				</section>
+
+
+			<!-- Setting up development environment  -->
+
+<!-- Slide 14 -->
 
 
 				<section>
-					<h2>Bootstrap</h2>
+					<img style="background: #fff; width:40%; position:absolute; left:0" src="images/github.png" /> <br/>
+					<img style="background: #fff; position:absolute; right: 80px" src="images/sublime.png" /> <br />
+					<img style="background: #fff; width:10%; position: absolute;" src="images/python.png" />
+					<img style="background: #fff; width:10%; position: absolute; left: 300px; bottom: -250px" src="images/bower-logo.png" />
+				</section>
+
+
+
+
+
+			<!-- BACKBONE -->
+
+
+<!-- Slide 17 -->
+
+				<section>
+					<h2>Backbone.js</h2>
+					<div>
+						<img style="background: #fff; width: 20%" src="images/backbone.png" />
+					</div>
+						<ul>
+							<li>Structure</li>
+							<li>Separation of Concerns <br/>(unless you cram everything into a single 100 line file)</li>
+<!-- 						<li>Views react to changes on models/collections</li> -->
+<!-- 						<li>RESTful JSON interface</li> -->
+						</ul>
+<!-- 						<p>-Mike Juniper</p> -->
+				</section>
+
+<!-- 				<section>
+					<h2>Backbone.js :: Getting Started</h2>
+						<img style="background: #fff" src="images/intro_backbone.png" />
+				</section> -->
+
+
+
+
+
+				<section>
+<!-- 					<h2>Bootstrap</h2> -->
 					<img src="images/bootstrap.png" />
 <!-- 					<p /*class="fragment grow"*/>Free and Open Source :: Twitter</p>
 					<p /*class="fragment grow"*/>Responsive design :: Mobile first approach</p>
@@ -491,10 +485,7 @@ new AppView();});
 		<!-- TYPEAHEAD -->
 <!-- Slide 22 -->
 			<section>
-				<h2>typeahead.js</h2>
-				<p /*class="fragment grow"*/>Super Cool</p>
-				<p /*class="fragment grow"*/>Wire up your own autocomplete</p>
-				<p /*class="fragment grow"*/>realtime</p>
+                <img src="images/typeahead.png" />
 				<aside class="notes">
 					<li>Twitter is awesome, if we didn’t mention that.
 Easily create your own autocomplete with REST endpoints, local arrays, or local files
