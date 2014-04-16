@@ -54,16 +54,7 @@
 					<p>Featuring Bootstrap, Backbone.js and much more!</p>
 					<br/><br />
 					<p>With Jeremy Folds and Nick Volpe</p>
-					<p>Junior GIS Developers with DTS Agile</p>
-					<aside class="notes">
-						<ul>
-							<li>Thanks to Andy/Amy/everyone putting on the meetup and ?Jack @esri for the food/drinks.</li>
-							<li>!!!!!!!Get an idea of how long we will take!!!!!!!</li>
-							<li>Do we have any non/entry level developers? I hope so...</li>
-							<li>briefly discuss our path to becoming developers and how we created GeoHappenings</li>
-							<li>Might remember us from such events as opening up for GitHub CEO at Dev Summit</li>
-						<ul>
-					</aside>
+					<p>GIS Developers with DTS Agile</p>
 				</section>
 
 
@@ -107,25 +98,20 @@
 				<section>
 					<h2>How did we get here?</h2>
 
-					<aside class="notes">
-						<ul>
-							<li>Award Winning Developers!!</li>
-							<li></li>
-						</ul>
-					</aside>
 				</section>
 
 
 <!-- Slide 6 -->
 				<section>
-					<p>In the beginning...</p>
+					<h2>In the beginning...</h2>
 					<img src="../images/usda.png" />
 				</section>
 
 <!-- Slide 7 -->
 
 				<section>
-					<img src="../images/gis-tech.jpg" />
+					<h2>GIS/LiDar/Orthoimagery</h2>
+					<img src="../images/dem.jpg" />
 				</section>
 
 
@@ -143,19 +129,15 @@
 					<img src="images/first_app.png" />
 				</section>
 
-<!-- Slide 10 -->
-				<section>
-					<h1>Hello World!</h1>
-				</section>
 
 <!-- Slide 11 -->
 
 
 
 				<section>
-					<div style="background: #fff">
-						<img src="../images/dtsagile-logo.png" />
-					</div>
+
+						<img style="background: #fff;" src="../images/dtsagile-logo.png" />
+
 				</section>
 
 
@@ -243,14 +225,6 @@
 			</section>
 
 
-<!-- Slide 16 -->
-
-
-            <section>
-				<p>End Nick Background</p>
-            </section>
-
-
 <!-- Slide 17 -->
 				<section>
 					<h2>Getting Started?</h2>
@@ -296,8 +270,9 @@
 
 				<section>
 					<h2>Demo</h2>
+					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">Other App</a></p>
+					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">Other App</a></p>
 					<p><a href="http://esri.github.io/100-lines-or-less-js/geohappenings/">GeoHappenings App</a></p>
-					<p><a href="https://github.com/Esri/100-lines-or-less-js/tree/master/geohappenings">GeoHappenings on GitHub</a></p>
 					<aside class="notes">
 						Some notes
 					</aside>
@@ -317,10 +292,6 @@
 					<p /*class="fragment grow"*/>GitHub</p>
 <!-- 					<p /*class="fragment grow"*/>bower -> Node.js</p> -->
 					<p /*class="fragment grow"*/>Python SimpleHTTPServer</p>
-<!-- 					<p class="fragment roll-in">Built Entirely with HTML, CSS, and JavaScript</p> -->
-					<aside class="notes">
-						It's all about the toolset.
-					</aside>
 				</section>
 
 
@@ -328,42 +299,16 @@
 
 <!-- Slide 14 -->
 
-			<!-- GITHUB -->
+
 				<section>
-					<h2>GitHub</h2>
-					Used a personal account repo
-					Both pushing to master branch...not good (lessons learned)
-					submitting pull request?
-					<aside class="notes">
-						<ul>
-							<li>Setup personal github account</li>
-						</ul>
-					</aside>
+					<img style="background: #fff; width:40%" src="images/github.png" /> <br/>
+					<img style="background: #fff; width:20%" src="images/sublime.png" /> <br />
+					<img style="background: #fff; width:10%" src="images/python.png" />
 				</section>
 
 
 
 
-<!-- Slide 16 -->
-<!-- 				<section>
-					<h2>Using Bower</h2>
-					<p>bower.json</p>
-					<pre><code data-trim contenteditable>
-{
-	"name": "GeoHappenings",
-	"private": true,
-	"dependencies": {
-		"jquery": "~2.1.0",
-		"underscore": "~1.6.0",
-		"backbone": "~1.1.2",
-		"modernizr": "~2.7.1",
-		"firebase": "~1.0.6",
-		"bootstrap": "~3.1.1"
-	},
-	"devDependencies": {}
-}
-					</code></pre>
-				</section> -->
 
 			<!-- BACKBONE -->
 
@@ -372,64 +317,21 @@
 
 				<section>
 					<h2>Backbone.js</h2>
-						<img src="images/backbone.png" />
-					<aside class="notes">
-						<ul>
-							<li>Didn’t use at first, wasn’t sure it was necessary</li>
-							<li>Wanted to add more features</li>
-							<li>thought it could help reduce code</li>
-							<li>Added in to help structure code and use eventing/models</li>
-							<li>Could have used collection? Already had working code/only added enought to stuff in new features (error handling usability)</li>
+					<div>
+						<img style="background: #fff; width: 20%" src="images/backbone.png" />
+					</div>
+<!-- 						<ul>
+						<li>Views react to changes on models/collections</li>
+						<li>RESTful JSON interface</li>
 						</ul>
-					</aside>
+						<p>-Mike Juniper</p> -->
 				</section>
-
-
-<!-- Slide 18 -->
 
 				<section>
-					<h2>Backbone.js :: Eventing</h2>
-
-					<p>jQuery</p>
-					<pre><code data-trim contenteditable>
-var $this = this;
-$('#message-input').on('keypress',function(evt) {
-	$this.saveMsg(evt)
-});
-
-$('.current-location').on('click', getLocation});
-
-
-$('#dev-summit').on('click',function() { $this.map.centerAndZoom([-116.5382, 33.8260], 16)});
-
-saveMsg: function () {
-	//stuff happens here
-}
-					</code></pre>
-
-					<p>Backbone</p>
-					<pre><code data-trim contenteditable>
-
-events: {
-	'click .share-message': 'saveMsg',
-	'keypress #message-input': 'saveMsg',
-	'click #dev-summit': 'getLocation'
-},
-
-getLocation: function () {
-	this.map.centerAndZoom([-116.5382, 33.8260], 16);
-},
-saveMsg: function () {
-	//stuff happens here
-}
-
-					</code></pre>
-
-
-					<aside class="notes">
-						notes about code
-					</aside>
+					<h2>Backbone.js :: Getting Started</h2>
+						<img style="background: #fff" src="images/intro_backbone.png" />
 				</section>
+
 
 <!-- Slide -->
 
@@ -470,15 +372,12 @@ toggleShare: function (model) {
 					<p /*class="fragment grow"*/>Responsive design :: Mobile first approach</p>
 					<p /*class="fragment grow"*/>Handles cross-browser support :: Normalize.css</p>
 					<p /*class="fragment grow"*/>Grid Layout</p>
-
-<!-- 					<p class="fragment roll-in">ESRI bootstrap map</p>
-					<p class="fragment roll-in">bootleaf, esri-leaflet</p> -->
-					<aside class="notes">
-						<li>Those guys at Twitter.</li>
-						<li>Saves a lot of time/effort.</li>
-					</aside>
 				</section>
 
+				<section>
+					<h2>Examples FTW!!!</h2>
+					<p><a href="http://getbootstrap.com/examples/starter-template/">Bootstrap Starter Template</a></p>
+				</section>
 
 
 		<!-- Firebase -->
@@ -500,7 +399,7 @@ toggleShare: function (model) {
 
 			<section>
 				<h2>Firebase Dashboard</h2>
-				<img src="../images/firebase_dashboard.png" />
+				<img src="../images/firebase-dashboard-al.png" />
 			</section>
 
 
@@ -529,13 +428,8 @@ Easily create your own autocomplete with REST endpoints, local arrays, or local 
 <!-- Slide 23 -->
 
 			<section>
-				<h2>Some Codez</h2>
-				<pre><code data-trim contenteditable>
-					dojo.require('esri.map', 'esri.tasks.locator', 'esri.geometry.webMercatorUtils');
-				</code></pre>
-				<aside class="notes">
-					notes about code
-				</aside>
+				<p><a href="http://twitter.github.io/typeahead.js/examples">Examples</a>
+
 			</section>
 
 
